@@ -16,6 +16,8 @@ namespace PCTV.Explorer.UnitTests
     [TestClass()]
     public class DirectoryTest
     {
+        private readonly static String ValidFolderPathKey = "ValidFolderPath";
+        private readonly static String InvalidFolderPathKey = "InvalidFolderPath";
         private readonly static String ValidFolderKey = "ValidFolder";
         private readonly static String InvalidFolderKey = "InvalidFolder";
 
@@ -41,13 +43,6 @@ namespace PCTV.Explorer.UnitTests
         // 
         //You can use the following additional attributes as you write your tests:
         //
-        //Use ClassInitialize to run code before running the first test in the class
-        [ClassInitialize()]
-        public static void MyClassInitialize(TestContext testContext)
-        {
-            testContext.Properties[ValidFolderKey] = ConfigurationManager.AppSettings[ValidFolderKey];
-            testContext.Properties[InvalidFolderKey] = ConfigurationManager.AppSettings[InvalidFolderKey];
-        }
         //
         //Use ClassCleanup to run code after all tests in a class have run
         //[ClassCleanup()]
@@ -56,10 +51,15 @@ namespace PCTV.Explorer.UnitTests
         //}
         //
         //Use TestInitialize to run code before running each test
-        //[TestInitialize()]
-        //public void MyTestInitialize()
-        //{
-        //}
+        [TestInitialize()]
+        public void MyTestInitialize()
+        {
+            TestContext.Properties[ValidFolderPathKey] = ConfigurationManager.AppSettings[ValidFolderPathKey];
+            TestContext.Properties[InvalidFolderPathKey] = ConfigurationManager.AppSettings[InvalidFolderPathKey];
+
+            TestContext.Properties[ValidFolderKey] = ConfigurationManager.AppSettings[ValidFolderKey];
+            TestContext.Properties[InvalidFolderKey] = ConfigurationManager.AppSettings[InvalidFolderKey];
+        }
         //
         //Use TestCleanup to run code after each test has run
         //[TestCleanup()]
@@ -74,24 +74,33 @@ namespace PCTV.Explorer.UnitTests
         ///A test for Directory Constructor
         ///</summary>
         [TestMethod()]
-        public void DirectoryConstructorTest()
+        public void DirectoryConstructorWithDirectoryInfoTest()
         {
             //Arrange
-            DirectoryInfo info = new DirectoryInfo((string)(TestContext.Properties[ValidFolderKey]));
+            DirectoryInfo info = new DirectoryInfo((string)(TestContext.Properties[ValidFolderPathKey]));
+            
             //Act
-            //Assert
             Directory target = new Directory(info);
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            
+            //Assert
+            Assert.IsNotNull(target.Children);
+            Assert.AreEqual(target.Name, info.Name);
+            Assert.AreEqual(target.FullPath, info.FullName);
         }
 
         /// <summary>
         ///A test for Directory Constructor
         ///</summary>
         [TestMethod()]
-        public void DirectoryConstructorTest1()
+        public void DirectoryConstructorWithoutParametersTest()
         {
+            //Arrange
+            
+            //Act
             Directory target = new Directory();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            
+            //Assert
+            Assert.IsNotNull(target.Children);
         }
 
         /// <summary>
@@ -100,12 +109,49 @@ namespace PCTV.Explorer.UnitTests
         [TestMethod()]
         public void ToDirectoryInfoTest()
         {
-            Directory target = new Directory(); // TODO: Initialize to an appropriate value
-            DirectoryInfo expected = null; // TODO: Initialize to an appropriate value
+            //Assert
+            string fullPath = TestContext.Properties[ValidFolderPathKey] as string;
+            string name = TestContext.Properties[ValidFolderKey] as string;
+            Directory expected = new Directory
+            {
+                Name = name,
+                FullPath = fullPath
+            };
+            
             DirectoryInfo actual;
-            actual = target.ToDirectoryInfo();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+
+            //Act
+            actual = expected.ToDirectoryInfo();
+
+            //Assert
+            Assert.AreEqual(expected.Name, actual.Name);
+            Assert.AreEqual(expected.FullPath, actual.FullName);
+        }
+
+
+        /// <summary>
+        ///A test for ToDirectoryInfo. It throws an exception
+        ///</summary>
+        [TestMethod()]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void ToDirectoryInfoInvalidTest()
+        {
+            //Assert
+            string fullPath = TestContext.Properties[InvalidFolderPathKey] as string;
+            string name = TestContext.Properties[InvalidFolderKey] as string;
+            Directory expected = new Directory
+            {
+                Name = name,
+                FullPath = fullPath
+            };
+
+            DirectoryInfo actual;
+
+            //Act
+            actual = expected.ToDirectoryInfo();
+
+            //Assert
+            //throws exception
         }
     }
 }
