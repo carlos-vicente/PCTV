@@ -16,6 +16,7 @@ namespace PCTV.Input
         public InputManager(ILogger logger)
         {
             _logger = logger;
+            InputReceived = new InputReceiver(LogInput);
         }
 
         public void EnterInput(object source, Command cmd)
@@ -28,6 +29,11 @@ namespace PCTV.Input
             {
                 _logger.Error("There was an error in one of the InputReceiver listeners with the following message: {0}", ex.Message);
             }
+        }
+
+        private void LogInput(object source, Command cmd)
+        {
+            _logger.Info("Received input {0} from {1}", cmd, source == null ? "null" : source.ToString());
         }
     }
 }
