@@ -17,6 +17,7 @@ namespace PCTV.Explorer
         public Explorer()
         {
             _fileStruture = TransformDirectories(GetRootDirectories()).ToArray();
+            CurrentPath = String.Empty;
         }
 
         public void Open(String name)
@@ -42,12 +43,12 @@ namespace PCTV.Explorer
 
         public void Up()
         {
-            if(_current == null || _current.Parent == null){
+            if(_current == null){
                 return;
             }
 
             _current = _current.Parent;
-            CurrentPath = _current.FullPath;
+            CurrentPath = _current != null ? _current.FullPath : String.Empty;
         }
 
         public IEnumerable<FileSystemInfo> GetCurrentContents()

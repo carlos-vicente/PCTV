@@ -3,6 +3,8 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
 
 namespace PCTV.Explorer.UnitTests
 {
@@ -12,7 +14,7 @@ namespace PCTV.Explorer.UnitTests
     ///This is a test class for ExplorerTest and is intended
     ///to contain all ExplorerTest Unit Tests
     ///</summary>
-    [TestClass()]
+    [TestClass]
     public class ExplorerTest
     {
 
@@ -66,15 +68,41 @@ namespace PCTV.Explorer.UnitTests
         #endregion
 
 
+        [TestMethod]
+        public void ConstructorTest()
+        {
+            //Arrange
+            String[] expected = GetValidDrives();
+
+            //Act
+            Explorer target = new Explorer();
+
+            //Assert
+            IEnumerable<FileSystemInfo> actual = target.GetCurrentContents();
+            Assert.IsNotNull(actual);
+            Assert.AreEqual(expected.Length, actual.Count());
+            for (int i = 0; i < expected.Length; ++i)
+            {
+                Assert.AreEqual(String.Format("{0}:\\", expected[i]), actual.Take(i+1).Last().FullName);
+            }
+        }
+
         /// <summary>
         ///A test for Up
         ///</summary>
         [TestMethod()]
         public void UpTest()
         {
-            Explorer target = new Explorer(); // TODO: Initialize to an appropriate value
+            //Arrange
+            Explorer target = new Explorer();
+            String[] drivers = GetValidDrives();
+            target.Open(String.Format("{0}:\\", drivers[0]));
+
+            //Act
             target.Up();
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+
+            //Assert
+            Assert.AreEqual(String.Empty, target.CurrentPath);
         }
 
         /// <summary>
@@ -83,24 +111,23 @@ namespace PCTV.Explorer.UnitTests
         [TestMethod()]
         public void OpenTest()
         {
-            Explorer target = new Explorer(); // TODO: Initialize to an appropriate value
-            string name = string.Empty; // TODO: Initialize to an appropriate value
-            target.Open(name);
-            Assert.Inconclusive("A method that does not return a value cannot be verified.");
+            //Arrange
+            Explorer target = new Explorer();
+            String[] drivers = GetValidDrives();
+
+            //Act
+            target.Open(String.Format("{0}:\\", drivers[0]));
+
+            //Assert
+            Assert.IsTrue(target.CurrentPath.StartsWith(drivers[0]));
         }
 
-        /// <summary>
-        ///A test for GetCurrentContents
-        ///</summary>
-        [TestMethod()]
-        public void GetCurrentContentsTest()
+        #region Aux
+        private static string[] GetValidDrives()
         {
-            Explorer target = new Explorer(); // TODO: Initialize to an appropriate value
-            IEnumerable<FileSystemInfo> expected = null; // TODO: Initialize to an appropriate value
-            IEnumerable<FileSystemInfo> actual;
-            actual = target.GetCurrentContents();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            string config = ConfigurationManager.AppSettings["Drives"];
+            return config.Split(',');
         }
+        #endregion
     }
 }
