@@ -80,7 +80,7 @@ namespace PCTV.Explorer.UnitTests
             DirectoryInfo info = new DirectoryInfo((string)(TestContext.Properties[ValidFolderPathKey]));
             
             //Act
-            Directory target = new Directory(info);
+            Directory target = new Directory(info.Name, info.FullName, null);
             
             //Assert
             Assert.IsNotNull(target.Children);
@@ -101,57 +101,6 @@ namespace PCTV.Explorer.UnitTests
             
             //Assert
             Assert.IsNotNull(target.Children);
-        }
-
-        /// <summary>
-        ///A test for ToDirectoryInfo
-        ///</summary>
-        [TestMethod()]
-        public void ToDirectoryInfoTest()
-        {
-            //Assert
-            string fullPath = TestContext.Properties[ValidFolderPathKey] as string;
-            string name = TestContext.Properties[ValidFolderKey] as string;
-            Directory expected = new Directory
-            {
-                Name = name,
-                FullPath = fullPath
-            };
-            
-            DirectoryInfo actual;
-
-            //Act
-            actual = expected.ToDirectoryInfo();
-
-            //Assert
-            Assert.AreEqual(expected.Name, actual.Name);
-            Assert.AreEqual(expected.FullPath, actual.FullName);
-        }
-
-
-        /// <summary>
-        ///A test for ToDirectoryInfo. It throws an exception
-        ///</summary>
-        [TestMethod()]
-        [ExpectedException(typeof(InvalidOperationException))]
-        public void ToDirectoryInfoInvalidTest()
-        {
-            //Assert
-            string fullPath = TestContext.Properties[InvalidFolderPathKey] as string;
-            string name = TestContext.Properties[InvalidFolderKey] as string;
-            Directory expected = new Directory
-            {
-                Name = name,
-                FullPath = fullPath
-            };
-
-            DirectoryInfo actual;
-
-            //Act
-            actual = expected.ToDirectoryInfo();
-
-            //Assert
-            //throws exception
         }
     }
 }

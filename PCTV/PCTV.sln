@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Declarations", "..\nVLC_Sou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Implementation", "..\nVLC_Sources\LibVlcWrapper\Implementation\Implementation.csproj", "{6BA02CCA-2E14-4A64-8AB6-594E600D80C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCTV.Application", "PCTV.Application\PCTV.Application.csproj", "{4060079D-EF30-4DF6-B090-A08DD024C8E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCTV.Explorer.FileSystem", "PCTV.Explorer.FileSystem\PCTV.Explorer.FileSystem.csproj", "{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = PCTV.vsmdi
@@ -137,6 +141,26 @@ Global
 		{6BA02CCA-2E14-4A64-8AB6-594E600D80C9}.Release|Mixed Platforms.Build.0 = Release|x86
 		{6BA02CCA-2E14-4A64-8AB6-594E600D80C9}.Release|x86.ActiveCfg = Release|x86
 		{6BA02CCA-2E14-4A64-8AB6-594E600D80C9}.Release|x86.Build.0 = Release|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Debug|x86.ActiveCfg = Debug|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Debug|x86.Build.0 = Debug|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Release|Any CPU.ActiveCfg = Release|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Release|Mixed Platforms.Build.0 = Release|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Release|x86.ActiveCfg = Release|x86
+		{4060079D-EF30-4DF6-B090-A08DD024C8E6}.Release|x86.Build.0 = Release|x86
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

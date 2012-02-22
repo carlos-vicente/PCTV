@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using PCTV.Explorer.IO;
 
 namespace PCTV.Explorer
 {
@@ -11,6 +12,6 @@ namespace PCTV.Explorer
         String CurrentPath { get; }
         void Open(String name);
         void Up();
-        IEnumerable<FileSystemInfo> GetCurrentContents();
+        IEnumerable<Element> GetCurrentContents();
     }
 }

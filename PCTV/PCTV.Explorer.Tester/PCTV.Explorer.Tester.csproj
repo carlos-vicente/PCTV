@@ -47,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PCTV.Explorer.FileSystem\PCTV.Explorer.FileSystem.csproj">
+      <Project>{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}</Project>
+      <Name>PCTV.Explorer.FileSystem</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PCTV.Explorer\PCTV.Explorer.csproj">
       <Project>{FA49EB32-08DB-4BD6-864E-F5E7B523C017}</Project>
       <Name>PCTV.Explorer</Name>

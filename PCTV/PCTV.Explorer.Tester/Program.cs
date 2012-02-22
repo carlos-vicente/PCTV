@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.IO;
+using PCTV.Explorer.FileSystem;
+using PCTV.Explorer.IO;
+using Directory = PCTV.Explorer.IO.Directory;
 
 namespace PCTV.Explorer.Tester
 {
@@ -10,8 +13,8 @@ namespace PCTV.Explorer.Tester
     {
         static void Main(string[] args)
         {
-            IExplorer explorer = new Explorer();
-            IEnumerable<FileSystemInfo> contents = null;
+            IExplorer explorer = new FileSystemExplorer();
+            IEnumerable<Element> contents = null;
             
             Console.WriteLine(explorer.CurrentPath ?? "<nothing>");
             contents = explorer.GetCurrentContents();
@@ -52,11 +55,11 @@ namespace PCTV.Explorer.Tester
             //}
         }
 
-        private static void PrintCurrentContents(IEnumerable<FileSystemInfo> contents)
+        private static void PrintCurrentContents(IEnumerable<Element> contents)
         {
             foreach (var c in contents)
             {
-                Console.WriteLine("- {0}({1})", c.Name, c is DirectoryInfo ? "D" : "F");
+                Console.WriteLine("- {0}({1})", c.Name, c is Directory ? "D" : "F");
             }
         }
     }

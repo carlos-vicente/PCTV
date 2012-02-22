@@ -5,6 +5,8 @@ using System.IO;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using PCTV.Explorer.FileSystem;
+using PCTV.Explorer.IO;
 
 namespace PCTV.Explorer.UnitTests
 {
@@ -75,15 +77,15 @@ namespace PCTV.Explorer.UnitTests
             String[] expected = GetValidDrives();
 
             //Act
-            Explorer target = new Explorer();
+            FileSystemExplorer target = new FileSystemExplorer();
 
             //Assert
-            IEnumerable<FileSystemInfo> actual = target.GetCurrentContents();
+            IEnumerable<Element> actual = target.GetCurrentContents();
             Assert.IsNotNull(actual);
             Assert.AreEqual(expected.Length, actual.Count());
             for (int i = 0; i < expected.Length; ++i)
             {
-                Assert.AreEqual(String.Format("{0}:\\", expected[i]), actual.Take(i+1).Last().FullName);
+                Assert.AreEqual(String.Format("{0}:\\", expected[i]), actual.Take(i + 1).Last().FullPath);
             }
         }
 
@@ -94,7 +96,7 @@ namespace PCTV.Explorer.UnitTests
         public void UpTest()
         {
             //Arrange
-            Explorer target = new Explorer();
+            FileSystemExplorer target = new FileSystemExplorer();
             String[] drivers = GetValidDrives();
             target.Open(String.Format("{0}:\\", drivers[0]));
 
@@ -112,7 +114,7 @@ namespace PCTV.Explorer.UnitTests
         public void OpenTest()
         {
             //Arrange
-            Explorer target = new Explorer();
+            FileSystemExplorer target = new FileSystemExplorer();
             String[] drivers = GetValidDrives();
 
             //Act
