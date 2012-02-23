@@ -112,6 +112,10 @@
       <Project>{0C1A2033-1960-4596-AAFC-824145DF6457}</Project>
       <Name>PCTV.ExternalInput</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PCTV.Input.Concrete\PCTV.Input.Concrete.csproj">
+      <Project>{1631BE1A-E539-4A50-990F-D34A5E37420E}</Project>
+      <Name>PCTV.Input.Concrete</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PCTV.Input\PCTV.Input.csproj">
       <Project>{B48FFE96-6AF2-4A5A-B1E0-E1C073C43C38}</Project>
       <Name>PCTV.Input</Name>

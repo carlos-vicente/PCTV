@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Ninject.Modules;
 
-namespace PCTV.Input
+namespace PCTV.Input.Concrete
 {
     public class DependencyModule: NinjectModule
     {

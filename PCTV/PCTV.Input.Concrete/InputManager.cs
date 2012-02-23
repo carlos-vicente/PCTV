@@ -5,7 +5,7 @@ using System.Text;
 using Ninject.Extensions.Logging;
 using PCTV.Input.Commands;
 
-namespace PCTV.Input
+namespace PCTV.Input.Concrete
 {
     public class InputManager : IInputManager
     {

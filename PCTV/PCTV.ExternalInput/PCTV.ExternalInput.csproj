@@ -97,7 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DependencyModule.cs" />
-    <Compile Include="Host\Host.cs" />
+    <Compile Include="Host\WebServiceHost.cs" />
     <Compile Include="Service\IExternalInput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service\ExternalInputService.cs" />

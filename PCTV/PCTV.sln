@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCTV.Application", "PCTV.Ap
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCTV.Explorer.FileSystem", "PCTV.Explorer.FileSystem\PCTV.Explorer.FileSystem.csproj", "{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PCTV.Input.Concrete", "PCTV.Input.Concrete\PCTV.Input.Concrete.csproj", "{1631BE1A-E539-4A50-990F-D34A5E37420E}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = PCTV.vsmdi
@@ -161,6 +163,16 @@ Global
 		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5C31D6F6-A71C-4712-B12D-E79D09BBF84F}.Release|x86.ActiveCfg = Release|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1631BE1A-E539-4A50-990F-D34A5E37420E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

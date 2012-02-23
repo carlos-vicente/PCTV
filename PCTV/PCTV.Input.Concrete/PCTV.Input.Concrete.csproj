@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{B48FFE96-6AF2-4A5A-B1E0-E1C073C43C38}</ProjectGuid>
+    <ProjectGuid>{1631BE1A-E539-4A50-990F-D34A5E37420E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PCTV.Input</RootNamespace>
-    <AssemblyName>PCTV.Input</AssemblyName>
+    <RootNamespace>PCTV.Input.Concrete</RootNamespace>
+    <AssemblyName>PCTV.Input.Concrete</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.2.2.1.4\lib\net40-Full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Logging">
+      <HintPath>..\packages\Ninject.Extensions.Logging.2.2.0.4\lib\net40-Full\Ninject.Extensions.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,10 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\Commands.cs" />
-    <Compile Include="Commands\VideoCommands.cs" />
-    <Compile Include="IInputManager.cs" />
+    <Compile Include="DependencyModule.cs" />
+    <Compile Include="InputManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PCTV.Input\PCTV.Input.csproj">
+      <Project>{B48FFE96-6AF2-4A5A-B1E0-E1C073C43C38}</Project>
+      <Name>PCTV.Input</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

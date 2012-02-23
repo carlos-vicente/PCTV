@@ -47,9 +47,9 @@ namespace PCTV.ExternalInput.Host
         {
             try
             {
-                IKernel kernel = new StandardKernel(new PCTV.Input.DependencyModule(), new PCTV.ExternalInput.DependencyModule());
+                IKernel kernel = new StandardKernel(new PCTV.Input.Concrete.DependencyModule(), new PCTV.ExternalInput.DependencyModule());
 
-                using (var host = kernel.Get<Host>(new ConstructorArgument("baseUrl", "http://localhost:8080/ExternalInput")))
+                using (var host = kernel.Get<WebServiceHost<IExternalInput>>(new ConstructorArgument("baseUrl", "http://localhost:8080/ExternalInput")))
                 {
                     host.Open();
                     WaitForKey();
