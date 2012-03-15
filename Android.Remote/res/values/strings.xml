@@ -1,0 +1,5 @@
+<resources>
+    <string name="IPAddress">Enter IP Address</string>
+    <string name="ConnectButton">Connect</string>
+    <string name="ExitButton">Exit</string>
+</resources>
